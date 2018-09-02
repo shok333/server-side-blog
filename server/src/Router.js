@@ -13,10 +13,13 @@ class Router extends BaseRouter {
             {method: 'get', url: '/login', controller: 'AuthController', controllerMethod: 'getLogin'},
             {method: 'get', url: '/', controller: 'PublicController', controllerMethod: 'getIndex'},
             {method: 'get', url: '/posts', controller: 'PublicController', controllerMethod: 'getPosts'},
+            {method: 'get', url: '/post', controller: 'PublicController', controllerMethod: 'postRegistration'},
+
             {method: 'post', url: '/login', controller: 'AuthController', controllerMethod: 'postLogin'},
+            {method: 'get', url: '/logout', controller: 'AuthController', controllerMethod: 'postLogout', allow: 'user'},
+            {method: 'get', url: '/user-profile', controller: 'AuthController', controllerMethod: 'getUserProfile', allow: 'user'},
             {method: 'get', url: '/registration', controller: 'AuthController', controllerMethod: 'getRegistration'},
             {method: 'post', url: '/registration', controller: 'AuthController', controllerMethod: 'postRegistration'},
-            {method: 'get', url: '/post', controller: 'PublicController', controllerMethod: 'postRegistration'},
             {method: 'get', url: '/verification-complete/:code', controller: 'AuthController', controllerMethod: 'postRegistrationConfirm'},
         ]
     }

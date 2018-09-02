@@ -14,7 +14,9 @@ class Login extends Component {
 
     submitHandler = (event) => {
         event.preventDefault();
-        this.props.loginRequest(this.state);
+        this.props.loginRequest({
+          ...this.state,
+        });
     };
 
     loginValueHandler = (event) => {
