@@ -31,9 +31,19 @@ class Login extends Component {
         });
     };
 
+    componentDidMount() {
+        window.addEventListener("message", function(e) {
+            console.log(e);
+        });
+    }
+
     render () {
         const { getFieldDecorator } = this.props.form;
-        return (
+        return ([
+            <span ref={(selectedPlace) => (this.selectedPlace = selectedPlace)} id="selected-place-data"></span>,
+            <input id="selected-place" type="text" onChange={(event) => {
+                this.selectedPlace.dataset.selected = event.target.value;
+            }}/>,
             <Form onSubmit={this.submitHandler} className="login-form">
                 <FormItem>
                     {getFieldDecorator('userName', {
@@ -63,7 +73,7 @@ class Login extends Component {
                     Or <a href="">register now!</a>
                 </FormItem>
             </Form>
-        )
+        ])
     }
 }
 
